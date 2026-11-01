@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Focelix</title>
+<meta name="description" data-en-content="Focelix AS: property and drone photography in Oslo and Eastern Norway through Eiendomsfotografen. The company also makes apps, starting with VOZIX." content="Focelix AS: boligfotografering og drone i Oslo og Østlandet gjennom Eiendomsfotografen. Selskapet lager også apper, først ut er VOZIX.">
+<style>
+@font-face{font-family:'Archivo';src:url(assets/fonts/archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+:root{
+  --ink:#0c0d10;--ink-2:#15171c;--paper:#f3f1ec;--paper-2:#e9e6df;--text:#16171a;--muted:#5d5f66;--line:rgb(22 23 26/.12);
+  --amber:#f08a4b;--white:#fff;--pad:clamp(1.25rem,5vw,4rem);--max:76rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font-family:'Archivo',system-ui,sans-serif;font-size:1.0625rem;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.wordmark{font-stretch:125%;font-weight:700;letter-spacing:.14em;text-decoration:none;font-size:1.05rem}
+.wordmark b{color:var(--amber);font-weight:700}
+
+/* Topplinje */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.top nav{display:flex;gap:2rem;font-size:.95rem}
+.top nav a{text-decoration:none;opacity:.82}
+.top nav a:hover{opacity:1}
+.top .right{display:flex;align-items:center;gap:2rem}
+.lang{display:flex;padding:2px;border:1px solid rgb(255 255 255/.35);border-radius:999px;font-size:.74rem;font-weight:600;letter-spacing:.12em}
+.lang button{all:unset;cursor:pointer;padding:.42rem .7rem;border-radius:999px;color:rgb(255 255 255/.75);line-height:1}
+.lang button:hover{color:#fff}
+.lang button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.lang button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* Hero: søkeren */
+.hero{position:relative;min-height:100svh;background:var(--ink) url(assets/img/hero.webp) center 40%/cover no-repeat;color:#fff;display:flex;align-items:flex-end;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(12 13 16/.5) 0%,rgb(12 13 16/0) 20%,rgb(12 13 16/0) 45%,rgb(12 13 16/.7) 80%,rgb(12 13 16/.9) 100%),linear-gradient(90deg,rgb(12 13 16/.35) 0%,rgb(12 13 16/.1) 45%,rgb(12 13 16/0) 65%)}
+.finder{position:absolute;inset:96px var(--pad) 28px;pointer-events:none}
+.finder i{position:absolute;width:34px;height:34px;border:1.5px solid rgb(255 255 255/.7)}
+.finder i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.finder i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.finder i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.finder i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.af{position:absolute;left:58%;top:21%;width:110px;height:72px;border:1.5px solid var(--amber);border-radius:3px;transform:translate(-50%,-50%);animation:af 2.4s .6s ease-out both}
+.af::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--amber)}
+@keyframes af{0%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}35%{opacity:1;transform:translate(-50%,-50%) scale(.94)}50%{transform:translate(-50%,-50%) scale(1)}100%{opacity:1}}
+.hero-in{position:relative;width:100%;padding-bottom:clamp(4.5rem,9vh,6.5rem)}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;margin:0 0 1.1rem}
+.hero h1{margin:0;font-weight:600;font-size:clamp(2.6rem,6.4vw,5.6rem);line-height:.98;letter-spacing:-.035em;max-width:15ch;text-wrap:balance}
+.hero h1 span{display:block;color:rgb(255 255 255/.55)}
+p{text-wrap:pretty}
+.hero p.lead{text-wrap:pretty;margin:1.5rem 0 0;max-width:36rem;font-size:clamp(1.05rem,1.4vw,1.2rem);color:rgb(255 255 255/.82)}
+.exif{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;display:flex;justify-content:space-between;gap:1rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgb(255 255 255/.6);font-variant-numeric:tabular-nums}
+.exif .rec{color:var(--amber)}
+
+/* Seksjoner */
+section{padding:clamp(4.5rem,10vw,8rem) 0}
+.kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+h2{margin:0;font-weight:600;font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.02;letter-spacing:-.03em;text-wrap:balance;max-width:18ch}
+.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem 4rem;align-items:end;margin-bottom:3rem}
+.intro p{margin:0;color:var(--muted);max-width:32rem}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.card{position:relative;border-radius:22px;overflow:hidden;min-height:600px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,3vw,2.5rem);isolation:isolate}
+.card .tag{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75;margin:0 0 .9rem}
+.card h3{margin:0;font-weight:600;font-size:clamp(1.7rem,2.6vw,2.3rem);letter-spacing:-.025em;line-height:1.05}
+.card p{margin:.8rem 0 0;max-width:28rem;color:rgb(255 255 255/.82)}
+.card .row{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem;margin-top:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;height:48px;padding:0 1.35rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.98rem}
+.btn svg{width:16px;height:16px}
+.ef{background:radial-gradient(120% 90% at 15% 0%,#3a3328 0%,#121214 62%)}
+.ef .btn{background:#fff;color:#111}
+.browser{position:absolute;top:2.2rem;left:clamp(1.5rem,3vw,2.5rem);right:-14%;border-radius:12px;overflow:hidden;background:#f4f4f4;box-shadow:0 30px 60px rgb(0 0 0/.5);border:1px solid rgb(255 255 255/.08)}
+.browser .bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#e4e4e4}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:#c4c4c4}
+.browser .bar span{margin-left:12px;flex:0 1 260px;height:18px;border-radius:9px;background:#fff;color:#666;font-size:.68rem;line-height:18px;padding:0 10px;white-space:nowrap;overflow:hidden}
+.browser img{width:100%;height:auto}
+.vz{background:radial-gradient(120% 90% at 85% 0%,#2a2160 0%,#0b0b12 60%);padding-right:clamp(1.5rem,3vw,2.5rem)}
+.vz .phone{position:absolute;top:2.2rem;right:clamp(1.5rem,4vw,3rem);width:clamp(150px,30%,215px);border-radius:28px;overflow:hidden;border:6px solid #1c1c26;box-shadow:0 30px 60px rgb(0 0 0/.5);transform:rotate(4deg)}
+.vz .logo{height:30px;width:auto;margin-bottom:.4rem}
+.vz .btn{background:linear-gradient(120deg,#7b61ff,#4da3ff);color:#fff}
+.soon{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:rgb(255 255 255/.75)}
+.soon::before{content:"";width:7px;height:7px;border-radius:50%;background:#8f7bff}
+.vz .copy{max-width:54%}
+
+/* Bilder */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;margin-top:2.5rem}
+.strip figure{margin:0;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:var(--paper-2)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.strip figure:hover img{transform:scale(1.04)}
+.strip-cap{display:flex;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.9rem;color:var(--muted)}
+
+/* Om */
+.about{background:var(--paper-2)}
+.about .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem 5rem}
+.about p{margin:1.2rem 0 0;color:var(--muted);max-width:34rem}
+.nace{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.nace li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}
+.nace .code{font-variant-numeric:tabular-nums;font-stretch:115%;font-weight:600}
+.nace .what{font-weight:600}
+.nace .who{display:block;font-weight:400;color:var(--muted);font-size:.95rem}
+
+/* Bunn */
+footer{background:var(--ink);color:#fff;padding:clamp(4rem,8vw,6rem) 0 2rem}
+footer .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem}
+footer h2{color:#fff;max-width:14ch}
+footer dl{margin:0;display:grid;gap:1rem}
+footer dt{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgb(255 255 255/.5)}
+footer dd{margin:.2rem 0 0}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+.ph{background:rgb(240 138 75/.16);color:var(--amber);padding:0 .35em;border-radius:4px}
+.base{display:flex;justify-content:space-between;gap:1rem;margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgb(255 255 255/.12);font-size:.85rem;color:rgb(255 255 255/.5)}
+
+@media (max-width:900px){
+  .intro,.about .grid,footer .grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:520px}
+  .strip{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:640px){
+  .top nav a:not(.k){display:none}
+  .top .right{gap:1.1rem}
+  .finder{inset:84px 16px 20px}
+  .finder i{width:22px;height:22px}
+  .hero{background-position:22% 40%}
+  .af{left:44%;top:27%;width:70px;height:48px}
+  .exif{bottom:30px;font-size:.62rem;letter-spacing:.08em}
+  .exif .hide-s{display:none}
+  .hero-in{padding-bottom:4.8rem}
+  .vz{min-height:0;justify-content:flex-start}
+  .vz .phone{position:relative;top:auto;right:auto;margin:.5rem auto 2rem;transform:rotate(3deg);width:200px}
+  .vz .copy{max-width:none}
+  .browser{position:relative;top:auto;left:auto;right:auto;margin:0 -.5rem 2rem 0}
+  .ef{justify-content:flex-start}
+  .strip-cap{flex-direction:column;gap:.2rem}
+  .base{flex-direction:column}
+}
+.zoom{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
+.zoom:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.lb{border:0;padding:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:#0a0a0c;color:#fff}
+.lb::backdrop{background:rgb(10 10 12/.94)}
+.lb[open]{display:flex;align-items:center;justify-content:center}
+.lb img{max-width:min(92vw,1800px);max-height:84dvh;width:auto;height:auto;border-radius:6px;box-shadow:0 20px 60px rgb(0 0 0/.5)}
+.lb button{all:unset;position:absolute;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgb(255 255 255/.1);cursor:pointer;font-size:1.4rem;line-height:1}
+.lb button:hover{background:rgb(255 255 255/.2)}
+.lb button:focus-visible{outline:2px solid var(--amber)}
+.lb .x{top:20px;right:20px}
+.lb .prev{left:20px;top:50%;transform:translateY(-50%)}
+.lb .next{right:20px;top:50%;transform:translateY(-50%)}
+.lb .count{position:absolute;bottom:22px;left:0;right:0;pointer-events:none;text-align:center;font-size:.85rem;color:rgb(255 255 255/.6);font-variant-numeric:tabular-nums}
+@media (max-width:640px){.lb .prev,.lb .next{top:auto;bottom:16px;transform:none}.lb .count{bottom:30px}.lb img{max-width:100vw;border-radius:0}}
+@media (prefers-reduced-motion:reduce){.af{animation:none}.strip img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="wordmark" href="#">FOCELI<b>X</b></a>
+    <div class="right">
+      <nav aria-label="Hovedmeny" data-en-aria-label="Main menu">
+        <a href="#virksomheter" data-en="Businesses">Virksomheter</a>
+        <a href="#om" data-en="About Focelix">Om Focelix</a>
+        <a class="k" href="#kontakt" data-en="Contact">Kontakt</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Språk" data-en-aria-label="Language">
+        <button type="button" data-l="nb" lang="nb" aria-pressed="true" title="Norsk">NO</button>
+        <button type="button" data-l="en" lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Focelix" style="padding:0">
+    <div class="finder" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="af"></span></div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">Focelix AS · Eiendomsfotografen</p>
+      <h1 data-en="Real estate images and drone operator. &lt;span&gt;Oslo and Eastern Norway.&lt;/span&gt;">Boligfoto og droneoperatør. <span>Oslo og Østlandet.</span></h1>
+      <p class="lead" data-en="Focelix is the company behind Eiendomsfotografen.&lt;br&gt;We specialize in interior, exterior, and aerial real estate photography for real estate agents, property developers, and private clients.&lt;br&gt;Alongside our photography services, we also develop apps.">Focelix er selskapet bak Eiendomsfotografen.<br>Vi fotograferer boliger inne, ute og fra lufta, for meglere, utbyggere og privatpersoner.<br>Ved siden av lager vi apper.</p>
+    </div>
+    <div class="exif" aria-label="Om bildet" data-en-aria-label="About the photo">
+      <span><span class="rec">●</span>&nbsp; Drone<span class="hide-s"> · 27.07.2026 · 14:25</span></span>
+      <span class="hide-s">DJI Mavic Mini</span>
+      <span>24 mm · f/2.8 · 1/400 s · ISO 100</span>
+    </div>
+  </section>
+
+  <section id="virksomheter">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <p class="kicker" data-en="Businesses">Virksomheter</p>
+          <h2 data-en="Photography first.&lt;br&gt;Apps on the side.">Fotografering først.<br>Apper ved siden av.</h2>
+        </div>
+        <p data-en="Real estate photography and drone operations are our core business.&lt;br&gt;Our experience behind the camera also inspires us to develop apps.&lt;br&gt;VOZIX is our first app, with more to come.">Boligfoto og droneflyging er hovedvirksomheten.<br>Erfaringen bak kameraet brukes også til å lage apper.<br>VOZIX er den første, og flere kommer.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card ef">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>eiendomsfotografen.com</span></div><img src="assets/img/eiendomsfotografen-nettside.webp" alt="Forsiden på eiendomsfotografen.com med boligbilder" data-en-alt="The eiendomsfotografen.com front page with property photos"></div>
+          <p class="tag" data-en="Photography">Fotografvirksomhet</p>
+          <h3>Eiendomsfotografen</h3>
+          <p data-en="Professional real estate and drone photography in Oslo and Eastern Norway, including interior, exterior, aerial, and twilight photography.">Boligfotografering og dronefoto i Oslo og Østlandet: klargjøring, utebilder, drone og kveldsbilder.</p>
+          <div class="row">
+            <a class="btn" href="https://www.eiendomsfotografen.com" rel="noopener">www.eiendomsfotografen.com
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card vz">
+          <img class="phone" src="assets/img/vozix-tagging.webp" alt="Skjermbilde fra VOZIX: bildet beskrives som Topptur Ryten rett etter at det er tatt" data-en-alt="Screenshot from VOZIX: the photo is described as Topptur Ryten right after it was taken">
+          <div class="copy">
+            <p class="tag" data-en="App development">Apputvikling</p>
+            <img class="logo" src="assets/img/vozix-logo.png" alt="VOZIX">
+            <p data-en="Camera and photo gallery for Android.&lt;br&gt;Describe your photos using your voice, and find them again with just one word.&lt;br&gt;Your photos stay on your phone.">Kamera og album for Android.<br>Beskriv bildet med stemmen, finn det igjen med ett ord.<br>Bildene blir på telefonen.</p>
+            <div class="row">
+              <a class="btn" href="https://www.vozix.no" rel="noopener">www.vozix.no
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <span class="soon" data-en="Coming soon to Google Play">Kommer snart på Google Play</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker" data-en="From Eiendomsfotografen">Fra Eiendomsfotografen</p>
+      <h2 data-en="Light, space and views.">Lys, rom og utsikt.</h2>
+      <div class="strip">
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-1.webp" aria-label="Vis større: Rekkehus med opplyste vinduer og terrasser i solnedgang" data-en-aria-label="View larger: Terraced houses with lit windows and terraces at sunset"><img src="assets/img/p1.webp" alt="Rekkehus med opplyste vinduer og terrasser i solnedgang" data-en-alt="Terraced houses with lit windows and terraces at sunset" loading="lazy"></button></figure>
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-2.webp" aria-label="Vis større: Garderobe med lyse treinnredninger" data-en-aria-label="View larger: Walk-in wardrobe with light wood fittings"><img src="assets/img/p2.webp" alt="Garderobe med lyse treinnredninger" data-en-alt="Walk-in wardrobe with light wood fittings" loading="lazy"></button></figure>
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-3.webp" aria-label="Vis større: Dekket langbord foran store vinduer i solnedgang" data-en-aria-label="View larger: Long dining table set in front of large windows at sunset"><img src="assets/img/p3.webp" alt="Dekket langbord foran store vinduer i solnedgang" data-en-alt="Long dining table set in front of large windows at sunset" loading="lazy"></button></figure>
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-4.webp" aria-label="Vis større: Opplyst hus og brosteinstun i blå time" data-en-aria-label="View larger: Lit house and cobblestone yard at blue hour"><img src="assets/img/p4.webp" alt="Opplyst hus og brosteinstun i blå time" data-en-alt="Lit house and cobblestone yard at blue hour" loading="lazy"></button></figure>
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-5.webp" aria-label="Vis større: Peis med flammer og blomster i vase" data-en-aria-label="View larger: Fireplace with flames and flowers in a vase"><img src="assets/img/p5.webp" alt="Peis med flammer og blomster i vase" data-en-alt="Fireplace with flames and flowers in a vase" loading="lazy"></button></figure>
+        <figure><button type="button" class="zoom" data-full="assets/img/stor-6.webp" aria-label="Vis større: Vann og golfbane i skogen sett fra drone" data-en-aria-label="View larger: Lake and golf course in the forest seen from a drone"><img src="assets/img/p6.webp" alt="Vann og golfbane i skogen sett fra drone" data-en-alt="Lake and golf course in the forest seen from a drone" loading="lazy"></button></figure>
+      </div>
+      <div class="strip-cap"><span data-en="All photos by Kim-David Eriksen.">Alle bildene er tatt av Kim-David Eriksen.</span><a href="https://www.eiendomsfotografen.com" data-en="See more at www.eiendomsfotografen.com">Se flere på www.eiendomsfotografen.com</a></div>
+    </div>
+  </section>
+
+  <section class="about" id="om">
+    <div class="wrap grid">
+      <div>
+        <p class="kicker" data-en="About Focelix">Om Focelix</p>
+        <h2 data-en="Photographer and drone pilot.">Fotograf og dronepilot.</h2>
+        <p data-en="Focelix AS is owned and operated by real estate photographer and drone pilot Kim-David Eriksen.&lt;br&gt;The company was previously known as Kim-David Eriksen Fotografi AS.&lt;br&gt;Real estate photography and drone services through &lt;a href=&quot;https://www.eiendomsfotografen.com&quot;&gt;www.eiendomsfotografen.com&lt;/a&gt; are the company's core business.">Focelix AS eies og drives av boligfotograf og dronepilot Kim-David Eriksen.<br>Selskapet het tidligere Kim-David Eriksen Fotografi AS.<br>Fotografering og droneflyging gjennom Eiendomsfotografen er hovedvirksomheten.</p>
+        <p data-en="Alongside these services, the company also develops apps.&lt;br&gt;The first is VOZIX, a photography app for Android, coming soon to Google Play.">Ved siden av lager selskapet apper.<br>Den første er VOZIX, en fotoapp for Android som kommer på Google Play snart.</p>
+      </div>
+      <ul class="nace" aria-label="Næringskoder" data-en-aria-label="Industry codes (NACE)">
+        <li><span class="code">74.200</span><span class="what" data-en="Photographic activities&lt;span class=&quot;who&quot;&gt;Eiendomsfotografen: property and drone photography&lt;/span&gt;">Fotografvirksomhet<span class="who">Eiendomsfotografen: boligfoto og drone</span></span></li>
+        <li><span class="code">62.100</span><span class="what" data-en="Computer programming activities&lt;span class=&quot;who&quot;&gt;VOZIX, and more apps over time&lt;/span&gt;">Dataprogrammeringstjenester<span class="who">VOZIX, og flere apper etter hvert</span></span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <a class="wordmark" href="#">FOCELI<b>X</b></a>
+        <h2 style="margin-top:2rem" data-en="Get in touch.">Ta gjerne kontakt.</h2>
+      </div>
+      <dl>
+        <div><dt data-en="Phone">Telefon</dt><dd><a href="tel:+4792200201">+47 92 200 201</a></dd></div>
+        <div><dt data-en="Email">E-post</dt><dd><a href="mailto:post@focelix.no">post@focelix.no</a></dd></div>
+      </dl>
+      <dl>
+        <div><dt data-en="Company">Selskap</dt><dd>Focelix AS</dd></div>
+        <div><dt data-en="Org. no.">Org.nr.</dt><dd>815 487 052</dd></div>
+        <div><dt data-en="Area">Område</dt><dd data-en="Oslo and Eastern Norway">Oslo og Østlandet</dd></div>
+      </dl>
+    </div>
+    <div class="base"><span>© 2026 Focelix AS</span><span style="white-space:nowrap" data-en="No cookies. No tracking.">Ingen informasjonskapsler. Ingen sporing.</span></div>
+  </div>
+</footer>
+<dialog class="lb" aria-label="Bildevisning" data-en-aria-label="Image viewer">
+  <img alt="">
+  <button type="button" class="x" aria-label="Lukk" data-en-aria-label="Close">&#x2715;</button>
+  <button type="button" class="prev" aria-label="Forrige bilde" data-en-aria-label="Previous image">&#x2190;</button>
+  <button type="button" class="next" aria-label="Neste bilde" data-en-aria-label="Next image">&#x2192;</button>
+  <div class="count"></div>
+</dialog>
+<script>
+(()=>{const h=document.documentElement,A=['alt','aria-label','content'];
+const els=[...document.querySelectorAll('[data-en]')];els.forEach(e=>e.dataset.nb=e.innerHTML);
+const ats=[];A.forEach(a=>document.querySelectorAll('[data-en-'+a+']').forEach(e=>ats.push([e,a,e.getAttribute(a),e.getAttribute('data-en-'+a)])));
+const bs=[...document.querySelectorAll('.lang button')];
+const set=(l,push)=>{const en=l==='en';h.lang=en?'en':'nb';
+els.forEach(e=>e.innerHTML=en?e.dataset.en:e.dataset.nb);
+ats.forEach(([e,a,nb,eng])=>e.setAttribute(a,en?eng:nb));
+bs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===h.lang)));
+if(push){const u=new URL(location.href);en?u.searchParams.set('lang','en'):u.searchParams.delete('lang');history.replaceState(null,'',u)}};
+bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.l,true)));
+if(new URLSearchParams(location.search).get('lang')==='en')set('en');
+})();
+(()=>{const z=[...document.querySelectorAll('.zoom')],d=document.querySelector('.lb');if(!z.length||!d.showModal)return;
+const im=d.querySelector('img'),c=d.querySelector('.count');let i=0;
+const show=n=>{i=(n+z.length)%z.length;const t=z[i];im.src=t.dataset.full;im.alt=t.querySelector('img').alt;c.textContent=(i+1)+' / '+z.length};
+z.forEach((t,n)=>t.addEventListener('click',()=>{show(n);d.showModal()}));
+d.querySelector('.x').onclick=()=>d.close();d.querySelector('.prev').onclick=()=>show(i-1);d.querySelector('.next').onclick=()=>show(i+1);
+d.addEventListener('click',e=>{if(e.target===d)d.close()});
+d.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+d.addEventListener('close',()=>z[i].focus());
+let x0=null;d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+d.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null});
+})();
+</script>
+</body>
+</html>
